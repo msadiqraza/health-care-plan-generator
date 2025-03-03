@@ -1,7 +1,7 @@
 file_reader_task:
    description: >
       Perform the following tasks step by step:
-      
+
       1. Care Plan Retrieval:
          - The gold standard healthcare plan is to be retrieved using file reader tool
 
@@ -19,7 +19,7 @@ file_reader_task:
             generating new care plans.
          - Load the gold standard healthcare plan and patterns extracted into your
             memory.
-   expected_output: > # to be changed
+   expected_output: >
       Patterns extracted from care plan and a status message if care plan is 
       stored in memory successfully
    name: Compliance-First Document Analysis and Pattern Extraction

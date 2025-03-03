@@ -41,10 +41,10 @@ class CarePlanGenerator:
     Step 8: train() to fine-tune the model
     Step 9: Basic prompt refinement (use few-shot strategy provide examples with ranking??), (ensure meets scorecard criteria)
 
-        Step 10: Build UI
-        Step 11: Prompt Engineering (See Dynamic prompting), (Different implementation strategy, different prompt, different model, different framework, best practices, etc )
+    Step 10: Build UI
+    Step 11: Prompt Engineering (See Dynamic prompting), (Different implementation strategy, different prompt, different model, different framework, best practices, etc )
 
-        Step 12: Evaluation
+    Step 12: Evaluation
 
     """
 
@@ -52,6 +52,7 @@ class CarePlanGenerator:
     tasks_config = "config/tasks.yaml"
 
     api_key = os.environ.get("GEMINI_API_KEY")
+    embedding_model = os.environ.get("EMBEDDING_MODEL")
     model = os.environ.get("MODEL")
 
     # Agents
@@ -108,12 +109,11 @@ class CarePlanGenerator:
             memory=True,
             embedder={
                 "provider": "google",
-                # "config": {"api_key": f"{self.api_key}", "model": f"{self.model}"},
                 "config": {
-                    "api_key": "AIzaSyCPmb-WgppIHoor7DgO_5jIgZc6cqlKr5Y",
-                    "model": "models/text-embedding-004",
+                    "api_key": self.api_key,
+                    "model": self.embedding_model,
                 },
             },
             verbose=True,
-            chat_llm="gemini-1.5-flash",
+            chat_llm=self.model,
         )
