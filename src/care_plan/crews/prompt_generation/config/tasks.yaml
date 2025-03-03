@@ -1,0 +1,40 @@
+prompt_generator_task:
+          description: >
+                    You are a prompt template generator. You will receive two variables:
+                    1. `prompt_type`: [{prompt_type}] – a string indicating the type of prompt to generate. Valid values include: "chain_of_thought", "least_to_most", "persona_based", "self_consistency", "tree_of_thoughts", etc.
+                    2. `basic_patient_health_info` [{base_prompt}]– a string containing the actual patient health information (for example, "persistent cough, mild fever, fatigue, and shortness of breath").
+
+                    Your task is to generate a prompt template In this template, include clear step-by-step sections and placeholders (e.g., `__input__`) for additional details. The output must match the exact structure and formatting as in the following examples provided in the agent definition.
+
+          expected_output: >
+                    The output must match the exact structure and formatting as in the examples provided in the agent definition. Output ONLY the corresponding Expected_Output template for the given `prompt_type` exactly as shown in the examples, preserving the formatting, structure, and placeholders.
+
+          agent: prompt_generator
+# prompt_generator_task:
+#           description: >
+#                     Generate a healthcare prompt based on the patient condition: {base_prompt}.
+#                     Apply the prompt engineering technique specified as: {prompt_type}.
+
+#                     Your task is to create a prompt that follows best practices for the specified
+#                     prompt engineering pattern. Use your knowledge of various prompt engineering
+#                     techniques to structure the medical information appropriately.
+
+#                     Critical Requirements:
+#                     1. Your output should BE the prompt itself, not an explanation of the prompt.
+#                     2. Format according to the standard practices of the requested prompt type.
+#                     3. For necessary but ''missing information'', use *__PLACEHOLDER_TEXT__* markers.
+#                     4. DO NOT include explanatory meta-text, questions, commentary, or instructions.
+#                     5. DO NOT explain what you're doing or why you're using a particular approach.
+#                     6. **Most Critical:** Remember that your output will be directly fed into another model to generate a
+#                       care plan after missing information is filled in. So ensure that the prompt is
+#                       complete and can be used as input for a language model to generate a care plan.
+
+#           expected_output: >
+#                     A ready-to-use prompt that:
+#                     1. Follows established patterns for the requested prompt type ({prompt_type})
+#                     2. Uses the available patient information from {base_prompt}
+#                     3. Includes necessary placeholders marked with *__PLACEHOLDER_TEXT__* format
+#                     4. Contains ONLY the final prompt with no explanatory text
+#                     5. Can be directly used as input for a language model to generate a care plan
+
+#           agent: prompt_generator

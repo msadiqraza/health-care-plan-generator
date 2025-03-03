@@ -1,0 +1,92 @@
+file_reader_task:
+   description: >
+      Perform the following tasks step by step:
+      
+      1. Care Plan Retrieval:
+         - The gold standard healthcare plan is to be retrieved using file reader tool
+
+      2. HIPAA Compliance:
+         - Identify any PHI/PII elements and pseudonymize them
+         - Verify all extracted data is HIPAA-compliant
+
+      3. Pattern Extraction:
+         - Read the provided healthcare plan document and understand its 
+            structure, key sections, and the level of detail provided for each section.
+         - Observe how information is organized by domains
+
+      4. Memory:
+         - Store this information in your memory as PATTERNS so you can refer to it when 
+            generating new care plans.
+         - Load the gold standard healthcare plan and patterns extracted into your
+            memory.
+   expected_output: > # to be changed
+      Patterns extracted from care plan and a status message if care plan is 
+      stored in memory successfully
+   name: Compliance-First Document Analysis and Pattern Extraction
+   agent: file_reader
+
+
+care_plan_generator_task:
+   description: >
+      Goal: Generate a comprehensive and personalized healthcare plan for 
+      the user based on: {prompt}.
+
+      To accomplish this perfomr the following tasks step by step:
+      1. **Reference Extraction:**
+         - Extract PATTERNS and gold standard from memory**
+      
+      2. **Plan Development:**
+         - When creating this plan, **refer to the gold standard healthcare plan 
+            and underlying PATTERNS that have been extracted from 'your' memory.
+         - Create care plan based on the needs and conditions of the user 
+            maintaining 'similar' structure
+         - Organize content into appropriate domains
+         - Include clear objectives and specify **detailed action items** for each 
+            domain
+      
+      3. **Quality Assurance:**
+         - Ensure all action items are actionable
+         - Verify completeness of each domain and check for clarity and specificity
+         - Maintain professional terminology 
+         3.1. Guardrails:
+            - Apply toxicity check and content filtering as appropriate
+
+   expected_output: >
+      A structured care plan following the reference's format
+   name: Care Plan Generation
+   agent: care_plan_generator
+   output_file: "generated/care_plan.md"
+
+evaluator_task:
+   description: >
+      Goal: Evaluate the provided care plan from context against the scorecard 
+         criteria from tool.
+
+      1. **Identify Gaps and Provide Evidence:** For each criterion, identify 
+         specific gaps or areas for improvement in the care plan. Support each 
+         identified gap with direct citations from the care plan as evidence.
+
+      2. **Suggest Enhancements:** For each gap, propose specific, actionable 
+         enhancements to improve the care plan's quality and effectiveness. 
+         Include suggested actions and highlight priority areas for revision.
+
+      3. **Scoring Guidelines**: Identify gaps clearly in care plan for each criterion 
+   expected_output: >
+      A structured evaluation report containing:
+      1. Category Scores
+         - Clear/Concise Score: [0-5]
+         - Comprehensive Score: [0-5]
+         - Expert Score: [0-5]
+         - Creative Score: [0-5]
+      
+      2. Evidence and Examples
+         - Specific citations from care plan with Gaps identified
+         - Specific actions needed and suggested enhancements
+         - Priority areas
+         - Suggested enhancements
+
+      Format as Markdown
+   name: Care Plan Quality Assessment
+   agent: evaluator
+   context: ["care_plan_generator_task"]
+   output_file: "generated/evaluation_report.md"
