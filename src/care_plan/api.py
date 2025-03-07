@@ -11,8 +11,8 @@ from .crews.prompt_generation.prompt_generation_crew import PromptGenerator
 
 app = FastAPI()
 
-# Allow requests from the React frontend
-origins = ["http://localhost:5173"]
+# Allow requests from the React frontend and Render domains
+origins = ["http://localhost:5173", "https://*.onrender.com", "https://*.render.com"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -79,15 +79,14 @@ async def generate_prompt(input_data: PromptGenerationInput):
     return {"prompt": result.raw}
 
 
-# Replace the old handler with a Mangum adapter at the module level:
-from mangum import Mangum
+# This is required for Vercel serverless functions
+def handler(request, context):
+    return app(request, context)
 
-handler = Mangum(app)
 
 if __name__ == "__main__":
-    import uvicorn
-
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
 
 # # TESTING
 # @app.get("/care-plan/test")
