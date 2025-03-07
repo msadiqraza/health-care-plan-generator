@@ -49,6 +49,7 @@ The application exposes a REST API for integration with frontend applications, a
 * **Output Format**: Markdown for generated care plans and evaluation reports
 
 ## Project Structure
+```
 care_plan/
 ├── src/
 │ └── care_plan/
@@ -70,7 +71,7 @@ care_plan/
 │ ├── care_plan.md # Generated care plans
 │ └── evaluation_report.md # Evaluation reports
 └── README.md # Project documentation
-
+```
 
 ## Setup Instructions
 
