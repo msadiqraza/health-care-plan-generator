@@ -31,6 +31,10 @@ class PromptGenerationInput(BaseModel):
     base_prompt: str
     prompt_type: str
 
+@app.get("/")
+def read_root():
+    return {"message": "Hello from Crew.ai FastAPI project!"}
+
 
 # Endpoint for care plan generation
 @app.post("/care-plan")
@@ -39,6 +43,10 @@ async def generate_care_plan(input_data: CarePlanInput):
     print("Started crew...")
     CarePlanGenerator().crew().kickoff(inputs=input_data.model_dump())
     print("Crew finished.")
+
+    # Ensure the generated directory exists
+    os.makedirs("generated", exist_ok=True)
+
     # Read the generated care plan and evaluation report from files
     care_plan_path = os.path.join("generated", "care_plan.md")
     evaluation_path = os.path.join("generated", "evaluation_report.md")
@@ -68,6 +76,11 @@ async def generate_prompt(input_data: PromptGenerationInput):
     # Kickoff the prompt generation crew using input from the endpoint
     result = PromptGenerator().crew().kickoff(inputs=input_data.model_dump())
     return {"prompt": result.raw}
+
+
+# This is required for Vercel serverless functions
+def handler(request, context):
+    return app(request, context)
 
 
 if __name__ == "__main__":

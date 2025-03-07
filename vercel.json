@@ -1,0 +1,12 @@
+{
+	"version": 2,
+	"builds": [
+		{
+			"src": "care_plan/src/care_plan/api.py",
+			"use": "@vercel/python"
+		}
+	],
+	"routes": [
+		{ "src": "/(.*)", "dest": "care_plan/src/care_plan/api.py" }
+	]
+}
