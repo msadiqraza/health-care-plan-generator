@@ -1,6 +1,6 @@
 import os
-import uvicorn
 
+import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -30,6 +30,7 @@ class CarePlanInput(BaseModel):
 class PromptGenerationInput(BaseModel):
     base_prompt: str
     prompt_type: str
+
 
 @app.get("/")
 def read_root():
@@ -78,14 +79,15 @@ async def generate_prompt(input_data: PromptGenerationInput):
     return {"prompt": result.raw}
 
 
-# This is required for Vercel serverless functions
-def handler(request, context):
-    return app(request, context)
+# Replace the old handler with a Mangum adapter at the module level:
+from mangum import Mangum
 
+handler = Mangum(app)
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    import uvicorn
 
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
 # # TESTING
 # @app.get("/care-plan/test")
