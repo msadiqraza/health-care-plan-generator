@@ -52,7 +52,7 @@ care_plan_generator_task:
             - Apply toxicity check and content filtering as appropriate
 
    expected_output: >
-      A structured care plan following the reference's format
+      A structured care plan following the reference's format in markdown
    name: Care Plan Generation
    agent: care_plan_generator
    output_file: "generated/care_plan.md"

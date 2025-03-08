@@ -11,8 +11,8 @@ from .crews.prompt_generation.prompt_generation_crew import PromptGenerator
 
 app = FastAPI()
 
-# Allow requests from the React frontend and Render domains
-origins = ["http://localhost:5173", "https://*.onrender.com", "https://*.render.com"]
+# Allow requests from the React frontend
+origins = ["http://localhost:5173", "http://localhost:3000"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
