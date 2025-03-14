@@ -3,11 +3,9 @@ import os
 
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import FileReadTool
-
 
 @CrewBase
-class CarePlanGenerator:
+class CarePlanGenerator():
     """
     This crew is used to generate a care plan, policy, and scorecard from a document.
     Uses Google
