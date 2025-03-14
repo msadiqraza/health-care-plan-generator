@@ -1,0 +1,245 @@
+{
+	"care_plan": {
+		"medical_concerns": {
+			"description": "Patient X had surgery for a subdural hematoma about 10 days ago.  He was discharged home but recently returned to the ED 2 days ago due to concerning symptoms. They discovered that he had a recurrent hematoma. Previously, symptoms were: difficulty with speech, motor control issues, sticking tongue out of his mouth, confusion.",
+			"conditions": [
+				"Diabetes - takes metformin to control",
+				"Hypertension",
+				"Vascular disease"
+			],
+			"objectives": [
+				"Monitor for new symptoms or status changes",
+				"Prevent falls",
+				"Ensure safety",
+				"Support recovery (including physical therapy exercises)"
+			],
+			"action_items": [
+				"Be awake, alert and ready to assist at all times",
+				"When client gets up in the night, provide stand guard to ensure he does not fall",
+				"If client's status changes, quickly ask him to:",
+				{
+					"assessment_tasks": [
+						"Smile (and observe his face, looking for lack of symmetry)",
+						"Raise both arms over his head",
+						"Say a sentence",
+						"Stick out his tongue",
+						"Note any other symptoms"
+					]
+				},
+				"If yes to any of the above, call 911 first, then inform anyone in the home right away and call Sage (24/7 Manager: 855-460-3950)",
+				"Notify family immediately if Patient X experiences any neurological symptoms"
+			],
+			"metadata": {
+				"condition": "Subdural Hematoma, Recurrent Hematoma",
+				"relevant_domain": "Neurological"
+			}
+		},
+		"mental_health_cognition": {
+			"description": "Patient X underwent brain surgery and may have experienced some changes in his cognition",
+			"objectives": [
+				"Track any cognitive changes and report them to primary care physician",
+				"Provide intellectual stimulation and engage him in conversation as desired"
+			],
+			"action_items": [
+				"Ensure that Patient X's medications are taken at the correct times by reminding family when medication is not complete",
+				"Take blood pressure daily when sitting and record in blood pressure log",
+				"Monitor for symptoms of cardiac distress",
+				"If there are changes in cognition, report to Sage and family",
+				"Engage Patient X in conversation when he appears interested"
+			],
+			"metadata": {
+				"condition": "Cognitive Impairment (Post-Surgery)",
+				"relevant_domain": "Neurological, Mental Health"
+			}
+		},
+		"skin_integrity": {
+			"objectives": ["Maintain skin integrity"],
+			"action_items": [
+				"Reposition client and help make comfortable when returning to bed after using the bathroom",
+				"Assess Patient X's skin on back, buttocks and sacrum while in the shower; report any redness or broken skin to family and to Sage",
+				"Apply lotion to skin daily",
+				"Make sure skin is completely dry prior to assisting him with putting his clothes on"
+			],
+			"metadata": {
+				"condition": "Potential Pressure Sores",
+				"relevant_domain": "Skin Integrity"
+			}
+		},
+		"digestion": {
+			"objectives": [
+				"Maintain regular elimination of bowel and bladder"
+			],
+			"action_items": [
+				"Note when Patient X is able to eliminate his bowels and record in notation book",
+				"Offer water, prune juice, papaya. Notify Sage if he does not have a bowel movement in 3 days"
+			],
+			"metadata": {
+				"condition": "Constipation",
+				"relevant_domain": "Gastrointestinal"
+			}
+		},
+		"safety": {
+			"objectives": ["Avoid falls and/or injury"],
+			"action_items": [
+				"Be awake and alert AT ALL TIMES",
+				"Keep client in view line of sight at all times",
+				"Respond quickly to any indication that Patient X intends to get up",
+				"Advise family of any concerns about client safety"
+			],
+			"metadata": {
+				"condition": "Fall Risk",
+				"relevant_domain": "Safety"
+			}
+		},
+		"exercise": {
+			"objectives": [
+				"Ensure follow through on exercises prescribed by PT",
+				"Support continued yoga as tolerated"
+			],
+			"action_items": [
+				"Learn and follow therapist instructions for at-home exercises provided by physical therapist, occupational therapist, and speech therapist",
+				"Encourage client to do Physical Therapy exercises that have been prescribed",
+				"Support client doing activities as tolerated"
+			],
+			"metadata": {
+				"condition": "Post-Surgical Rehabilitation",
+				"relevant_domain": "Physical Therapy"
+			}
+		},
+		"sleep": {
+			"objectives": [
+				"Be present and alert when care is needed",
+				"Support Patient X in getting adequate rest"
+			],
+			"action_items": [
+				"Listen and watch for movement and any attempts to get up",
+				"Do not wait for wife to call"
+			],
+			"metadata": {
+				"condition": "Sleep Disturbances (Potential)",
+				"relevant_domain": "Sleep Health"
+			}
+		},
+		"personal_care": {
+			"description": "While working with care team, Patient X will benefit from assistance with activities of daily living, especially transferring/ambulating, showering, dressing and grooming. He currently ambulates with a walker.",
+			"action_items": [
+				"Provide contact guard assistance and support with bathing, dressing/grooming, transferring and toileting",
+				"Ensure that he is well groomed",
+				"Keep bathroom clean and tidy items on counters",
+				"File his nails as needed",
+				"Keep supplies tidy and organized",
+				"Work with family to ensure that all of client's requests are acknowledged and addressed"
+			],
+			"metadata": {
+				"condition": "Impaired Mobility",
+				"relevant_domain": "Activities of Daily Living (ADL)"
+			}
+		},
+		"nutrition_and_meals": {
+			"description": "Patient X follows a careful diet. Meals are prepared by family or cook. Client will eat independently.",
+			"objectives": [
+				"Ensure client's wishes for food are fulfilled",
+				"Communicate with chef about his wishes and food needs"
+			],
+			"action_items": [
+				"Monitor swallowing when he eats",
+				"If coughing occurs, suggest he allow time between bites"
+			],
+			"metadata": {
+				"condition": "Dietary Restrictions (Unspecified)",
+				"relevant_domain": "Nutrition"
+			}
+		},
+		"quality_of_life": {
+			"description": "Patient X may need happiness from spending time with his family and grandchildren. He expressed a wish to contribute to his family. He has made it clear that it is a high priority for him to see all 7 grandchildren each day. He also has specific interests, enjoys yoga and will feel best when he can resume his normal activities.",
+			"objectives": [
+				"Promote independence",
+				"Resume his regular routine"
+			],
+			"action_items": [
+				"Assist with visits with grandchildren as needed",
+				"Honor requests and wishes whenever possible and safe to do"
+			],
+			"metadata": {
+				"condition": "Social Isolation (Potential)",
+				"relevant_domain": "Quality of Life"
+			}
+		},
+		"household_maintenance": {
+			"description": "Patient X and his spouse are staying in their daughter's home during recovery and need help maintaining a clean environment",
+			"objectives": [
+				"Help maintain a tidy environment"
+			],
+			"action_items": [
+				"Assist with clean up after meals",
+				"Keep client's room and bathroom tidy",
+				"Do client's laundry as needed",
+				"Change client's sheets daily",
+				"Change client's pillowcase twice daily or more often as needed"
+			],
+			"metadata": {
+				"condition": "Need for Assistance with Household Chores",
+				"relevant_domain": "Home Healthcare"
+			}
+		},
+		"covid": {
+			"description": "Patient X is without symptoms of Covid",
+			"objectives": [
+				"Patient X will not be exposed to Covid. Care Providers will not be exposed to Covid."
+			],
+			"action_items": [
+				"Everyone in the house should wear a mask if within 6 feet of each other",
+				"Wash hands for 20 seconds often and especially after handling any potential source of contamination",
+				"Wipe down counters and cupboards every few hours if it in contact with contaminants",
+				"For packages that arrive, remove outside packaging and dispose immediately of any item that is brought in. Wash hands.",
+				"For groceries, remove immediately from bags and dispose of bags. Wipe/rinse any food items"
+			],
+			"metadata": {
+				"condition": "COVID-19 Precautions",
+				"relevant_domain": "Infection Control"
+			}
+		},
+		"fall_risk": {
+			"objectives": ["Avoid falls and/or injury"],
+			"action_items": [
+				"Provide contact guard at all times when client is walking",
+				"Provide reminders to client that he is still recovering",
+				"Facilitate him getting back to his projects and permit some activity as tolerated",
+				"Use your judgment about stimulation and ask for quiet periods if he seems fatigued",
+				"There may be times when the stimulation of family, grandchildren, activities may be too much. Recommend that Patient X go to his room for a rest",
+				"Keep track of what you feel he needs for successful recovery"
+			],
+			"metadata": {
+				"condition": "High Fall Risk",
+				"relevant_domain": "Safety"
+			}
+		},
+		"medication_management": {
+			"description": "Patient X's daughter will manage all medications",
+			"objectives": [
+				"Ensure compliance with medication regimen"
+			],
+			"action_items": [
+				"Familiarize yourself with medication schedule and provide reminders as needed",
+				"Document when medications are given"
+			],
+			"metadata": {
+				"condition": "Medication Management by Family Member",
+				"relevant_domain": "Medication Management"
+			}
+		},
+		"financial": {
+			"description": "Patient X is not managing his business affairs at this time",
+			"objectives": ["Maintain privacy and security"],
+			"action_items": [
+				"Alert family members if there are any requests to handle money, pay bills or anything related to finances",
+				"As always, care providers are not to accept any gifts or tips of any value",
+				"Please advise Sage and your agency if any gifts are offered and identify the person to discuss with Sage"
+			],
+			"metadata": {
+				"condition": "Financial Matters Handled by Family",
+				"relevant_domain": "Financial"
+			}
+		}
+	}
+}
