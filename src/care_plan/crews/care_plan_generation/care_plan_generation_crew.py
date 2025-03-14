@@ -62,7 +62,7 @@ class CarePlanGenerator:
             config=self.agents_config["file_reader"],
             tools=[
                 FileReadTool(
-                    file_path="data/care_plan_instructions.json",
+                    file_path="./data/care_plan_instructions.json",
                 )
             ],
         )
@@ -79,7 +79,7 @@ class CarePlanGenerator:
             config=self.agents_config["evaluator"],
             tools=[
                 FileReadTool(
-                    file_path="data/care_instruction_scorecard.json",
+                    file_path="./data/care_instruction_scorecard.json",
                 )
             ],
         )
