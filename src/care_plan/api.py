@@ -1,4 +1,5 @@
 import os
+import json
 
 import uvicorn
 from fastapi import FastAPI
@@ -8,7 +9,6 @@ from pydantic import BaseModel
 # Import CrewAI crews
 from .crews.care_plan_generation.care_plan_generation_crew import CarePlanGenerator
 from .crews.prompt_generation.prompt_generation_crew import PromptGenerator
-from .utils import extract_json
 
 app = FastAPI()
 
@@ -22,7 +22,36 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+def extract_json_data(file_path):
+    """
+    Extracts data from a JSON file.
 
+    Args:
+        file_path (str): The path to the JSON file.
+
+    Returns:
+        dict: The extracted JSON data as a dictionary, or None if an error occurs.
+    """
+    try:
+        # Use absolute path
+        absolute_file_path = os.path.abspath(file_path)
+        print(f"Attempting to read JSON from: {absolute_file_path}")
+
+        with open(absolute_file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        print("Data extracted successfully.")
+        print(f"Data: {data}")    
+        return data
+    except FileNotFoundError:
+        print(f"Error: File not found at {absolute_file_path}")
+        return None
+    except json.JSONDecodeError as e:
+        print(f"Error: Invalid JSON format in {absolute_file_path}: {e}")
+        return None
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        return None
+    
 # Define input models for endpoints
 class CarePlanInput(BaseModel):
     prompt: str
@@ -35,7 +64,7 @@ class PromptGenerationInput(BaseModel):
 
 @app.get("/")
 def read_root():
-    care_plan_file_path = "data/care_plan_instructions.json"
+    care_plan_file_path = "./data/care_plan_instructions.json"
     
     care_plan_file = extract_json_data(care_plan_file_path)
     
@@ -99,5 +128,5 @@ def handler(request, context):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app)
+    uvicorn.run(app, port=8080)
 
