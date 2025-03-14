@@ -85,7 +85,7 @@ async def generate_care_plan(input_data: CarePlanInput):
     
     model_input = {"prompt": input_data.prompt, "score_card_file": score_card_file,"care_plan_file": care_plan_file }
 
-    CarePlanGenerator().crew().kickoff(inputs=model_input.model_dump())
+    CarePlanGenerator().crew().kickoff(inputs=model_input)
     print("Crew finished.")
 
     # Ensure the generated directory exists
