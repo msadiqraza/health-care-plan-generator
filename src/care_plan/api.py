@@ -8,6 +8,7 @@ from pydantic import BaseModel
 # Import CrewAI crews
 from .crews.care_plan_generation.care_plan_generation_crew import CarePlanGenerator
 from .crews.prompt_generation.prompt_generation_crew import PromptGenerator
+from .utils import extract_json
 
 app = FastAPI()
 
@@ -34,7 +35,11 @@ class PromptGenerationInput(BaseModel):
 
 @app.get("/")
 def read_root():
-    return {"message": "Hello from Crew.ai FastAPI project!"}
+    care_plan_file_path = "data/care_plan_instructions.json"
+    
+    care_plan_file = extract_json_data(care_plan_file_path)
+    
+    return {"message": care_plan_file}
 
 
 # Endpoint for care plan generation
@@ -42,6 +47,15 @@ def read_root():
 async def generate_care_plan(input_data: CarePlanInput):
     # Kickoff the care plan generation crew using input from the endpoint
     print("Started crew...")
+
+    care_plan_file_path = "data/care_plan_instructions.json"
+    score_card_file_path = "data/care_instruction_scorecard.json"
+    
+    care_plan_file = extract_json_data(care_plan_file_path)
+    score_card_file = extract_json_data(score_card_file_path)
+    
+    model_input = {"prompt": input_data.prompt, "score_card_file": score_card_file,"care_plan_file": care_plan_file }
+
     CarePlanGenerator().crew().kickoff(inputs=input_data.model_dump())
     print("Crew finished.")
 
@@ -87,31 +101,3 @@ def handler(request, context):
 if __name__ == "__main__":
     uvicorn.run(app)
 
-
-# # TESTING
-# @app.get("/care-plan/test")
-# async def test_care_plan():
-#     # Kickoff the care plan generation crew using input from the endpoint
-#     filename = "data/care_instructions.pk1"
-#     file_path = "data/care_plan_instructions.json"
-
-#     import json
-
-#     with open(file_path, "r") as f:
-#         care_plan = json.load(f)
-
-#     context_string = (
-#         "Always refer to the following optimal care plan when generating a new one:"
-#         + json.dumps(care_plan)
-#     )
-
-#     inputs = {
-#         "context": context_string,
-#         "learning_rate": 0.001,
-#         "batch_size": 32,  # Adjust based on your system capabilities
-#         "output_mode": "prompt_only",  # Ensure outputs are limited to care plan prompts
-#         "prompt": "The given context contains the perfect care plan. **ALWAYS** keep it in mind when responding.",
-#     }
-
-#     CarePlanGenerator().crew().train(n_iterations=5, inputs=inputs, filename=filename)
-#     return {"care_plan": "Yes"}

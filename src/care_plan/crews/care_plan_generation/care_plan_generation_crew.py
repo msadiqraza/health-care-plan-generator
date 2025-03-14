@@ -60,11 +60,6 @@ class CarePlanGenerator:
     def file_reader(self) -> Agent:
         return Agent(
             config=self.agents_config["file_reader"],
-            tools=[
-                FileReadTool(
-                    file_path="./data/care_plan_instructions.json",
-                )
-            ],
         )
 
     @agent
@@ -77,11 +72,6 @@ class CarePlanGenerator:
     def evaluator(self) -> Agent:
         return Agent(
             config=self.agents_config["evaluator"],
-            tools=[
-                FileReadTool(
-                    file_path="./data/care_instruction_scorecard.json",
-                )
-            ],
         )
 
     @task

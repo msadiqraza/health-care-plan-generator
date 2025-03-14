@@ -3,7 +3,7 @@ file_reader_task:
       Perform the following tasks step by step:
 
       1. Care Plan Retrieval:
-         - The gold standard healthcare plan is to be retrieved using file reader tool
+         - The gold standard healthcare plan: {care_plan_file}
 
       2. HIPAA Compliance:
          - Identify any PHI/PII elements and pseudonymize them
@@ -60,7 +60,7 @@ care_plan_generator_task:
 evaluator_task:
    description: >
       Goal: Evaluate the provided care plan from context against the scorecard 
-         criteria from tool.
+         criteria: {score_card_file}.
 
       1. **Identify Gaps and Provide Evidence:** For each criterion, identify 
          specific gaps or areas for improvement in the care plan. Support each 
