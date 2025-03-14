@@ -12,7 +12,7 @@ from .crews.prompt_generation.prompt_generation_crew import PromptGenerator
 app = FastAPI()
 
 # Allow requests from the React frontend
-origins = ["http://localhost:5173", "http://localhost:3000"]
+origins = ["http://localhost:5173", "http://localhost:3000", "https://alphabase.co", "https://automations.alphabase.co"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,

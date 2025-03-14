@@ -1,0 +1,45 @@
+{
+	"categories": {
+		"clear_and_concise": {
+			"criteria": [
+				"Are the care challenges and suggested approaches clearly stated and easy to understand?",
+				"Is the client's daily routine clear?",
+				"Is the care instruction well written without errors (grammatical, sentences start with action verb)?"
+			],
+			"standard": [
+				"Clear approaches and instructions to follow to respond to specific care needs and care challenges",
+				"Instructions are well written, clear and concise"
+			]
+		},
+		"comprehensive": {
+			"criteria": [
+				"Do you have the answers to all of the new client intake questions?",
+				"Does this care instruction include client challenges, care needs, and quality of life/background information?",
+				"Are the approaches to care comprehensive and do they show creative and holistic thinking (including ADLs)?"
+			],
+			"standard": [
+				"Care plan includes an exhaustive list of problems and solutions, is personalized, specific, and tailored to the individual client"
+			]
+		},
+		"expert": {
+			"criteria": [
+				"Do the solutions reflect our expert thinking and best practices for each problem? For problems and I have consulted with my supervisor/team",
+				"Have you asked the PCA team if there's anything we missed or if there's anything new that they learned in their initial shifts?",
+				"Has the care manager reviewed and/or made edits to the instructions?"
+			],
+			"standard": [
+				"Instructions and approaches to care reflect proven care practices, collective best thinking and expertise and creativity"
+			]
+		},
+		"creative": {
+			"criteria": [
+				"For known challenging behaviors, do the instructions include multiple approaches to overcoming these barriers to care?",
+				"Do the instructions paint a picture of who this person is? Their likes and interests?",
+				"Do the instructions include varied quality of life activities?"
+			],
+			"standard": [
+				"Instructions include multiple approaches to challenging behaviors as well as varied quality of life activities"
+			]
+		}
+	}
+}
