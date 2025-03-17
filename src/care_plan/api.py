@@ -115,7 +115,7 @@ async def generate_care_plan(input_data: CarePlanInput):
 
 
 # Endpoint for prompt generation
-@app.post("/prompt")
+@app.post("/care-plan/prompt")
 async def generate_prompt(input_data: PromptGenerationInput):
     # Kickoff the prompt generation crew using input from the endpoint
     result = PromptGenerator().crew().kickoff(inputs=input_data.model_dump())
